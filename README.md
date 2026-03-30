@@ -20,13 +20,6 @@ Personal developer portfolio built with React + Vite. Deployed via GitHub Action
 - **Skills** — categorized by Languages, Frontend, Backend, Databases, ML, Tools
 - **Contact** — email, GitHub, LinkedIn
 
-## Run Locally
-
-```bash
-npm install
-npm run dev
-```
-
 ## Deploy
 
 Pushes to `main` automatically trigger a build and deploy via `.github/workflows/deploy.yml`.
