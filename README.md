@@ -4,7 +4,7 @@ Personal developer portfolio built with React + Vite. Deployed via GitHub Action
 
 ## Live Site
 
-[adityamohite47.github.io/portfolio](https://adityamohite47.github.io/portfolio/)
+[adityamohite47.github.io/portfolio](https://adityamohite47.github.io/Portfolio-Site/)
 
 ## Stack
 
