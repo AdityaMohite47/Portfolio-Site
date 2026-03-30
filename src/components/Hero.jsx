@@ -1,5 +1,6 @@
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import GitHubStats from './GitHubStats'
+import profileImg from '../assets/profile.png'
 
 function Hero() {
   return (
@@ -23,13 +24,13 @@ function Hero() {
 
         <GitHubStats />
 
-        <a href="/Aditya_Mohite.pdf" download className="resume-btn">
+        <a href="/Portfolio-Site/Aditya_Mohite.pdf" download className="resume-btn">
           Download Resume
         </a>
       </div>
 
       <div className="hero-image">
-        <img src="/profile.png" alt="profile" />
+        <img src={profileImg} alt="profile" />
       </div>
 
     </section>
