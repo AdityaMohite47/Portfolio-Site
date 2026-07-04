@@ -29,13 +29,13 @@ export function useGitHubStats() {
           activeSinceYear = new Date(ownRepos[0].created_at).getFullYear()
         }
 
-        const estimatedCommits = ownRepos.reduce((total, repo) => {
+        const activityScore = ownRepos.reduce((total, repo) => {
           return total + Math.max(10, Math.min(repo.size / 10, 100))
         }, 0)
 
         setStats({
           publicRepos: userData.public_repos,
-          totalCommits: Math.floor(estimatedCommits / 10) * 10,
+          activityScore: Math.floor(activityScore / 10) * 10,
           activeSince: activeSinceYear,
         })
       } catch (err) {

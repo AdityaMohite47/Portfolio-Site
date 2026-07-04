@@ -1,13 +1,30 @@
+import { useLayoutEffect, useRef } from 'react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import GitHubStats from './GitHubStats'
 import profileImg from '../assets/profile.png'
+import qilinLogoDark from '../assets/qilinlab-logo-dark.svg'
+import qilinLogoLight from '../assets/qilinlab-logo-light.svg'
 
 function Hero() {
+  const nameRef = useRef(null)
+
+  useLayoutEffect(() => {
+    if (nameRef.current) {
+      nameRef.current.style.setProperty('--name-width', `${nameRef.current.scrollWidth}px`)
+    }
+  }, [])
+
   return (
     <section id="hero">
 
       <div className="hero-text">
-        <h1>Aditya Mohite</h1>
+        <div className="hero-intro">
+          <p className="hero-greeting">$ whoami</p>
+          <h1>
+            <span ref={nameRef} className="typing-name">Aditya Mohite</span>
+            <span className="cursor-blink" aria-hidden="true">_</span>
+          </h1>
+        </div>
 
         <div className="hero-handles">
           <a href="https://github.com/AdityaMohite47" target="_blank">
@@ -20,7 +37,21 @@ function Hero() {
           </a>
         </div>
 
-        <p className="hero-role">Entry Level Software Developer</p>
+        <p className="hero-role">Junior <span className="highlight">Full-Stack</span> Developer</p>
+
+        <a
+          href="https://qilinlab.com/"
+          target="_blank"
+          rel="noreferrer"
+          className="status-badge"
+        >
+          <span className="status-dot" />
+          Currently building @
+          <picture>
+            <source srcSet={qilinLogoDark} media="(prefers-color-scheme: dark)" />
+            <img src={qilinLogoLight} alt="Qilin Lab" className="company-logo" />
+          </picture>
+        </a>
 
         <GitHubStats />
 

@@ -1,22 +1,19 @@
 function About() {
-    return (
-      <section id="about">
+  return (
+    <section id="about">
+      <h2><span>#</span> about</h2>
 
-        <h2>About Me</h2>                                                                                                                                                                     
-   
-        <p>                                                                                                                                                                                   
-         
-I’m a final‑year B.Sc. Computer Science student and entry‑level software developer focused on building practical backend systems in Python.
+      <p>
+I’m a backend‑rooted developer currently working as a Junior Full Stack Developer at Qilin Lab, building full‑stack features across a Python/Django backend and React frontend — including REST API design and AI‑integration work.
 
-I have hands‑on experience developing backend and ML‑oriented projects, including Django REST APIs, data‑driven services, and integrations with external APIs. My work involves applying core CS concepts, working with real datasets, and wiring together multiple services to solve specific problems.
+Before this, I built hands‑on backend and ML‑oriented projects: Django REST APIs, LangGraph/Gemini‑powered services, and data pipelines, while completing my B.Sc. in Computer Science (2023–2026).
 
-My technical foundation includes Python, object‑oriented programming, and core computer science fundamentals. I have worked with machine learning libraries such as Pandas, NumPy, and scikit‑learn, and explored LLM‑based workflows using tools like LangChain and LangGraph through structured projects.
+My foundation is Python and backend engineering — REST API design, relational and NoSQL databases, and core CS fundamentals. I’ve also worked with Pandas, NumPy, and scikit‑learn for ML workflows, and explored LLM‑based systems with LangChain and LangGraph.
 
-I am currently seeking internship or entry‑level software engineering opportunities where I can contribute to real‑world backend projects and continue growing my skills in Python, APIs, and applied Machine Learning and Deep Learning fundamentals.                                                                                                                                                  
-        </p>                                                                                                                                                                                  
-   
-      </section>                                                                                                                                                                              
-    )                                                                                                                                                                                       
-  }
+I’m continuing to grow into full‑stack development — deepening my React and FastAPI skills and strengthening production database work with PostgreSQL — while keeping backend engineering as my core strength.
+      </p>
+    </section>
+  )
+}
 
-  export default About
+export default About

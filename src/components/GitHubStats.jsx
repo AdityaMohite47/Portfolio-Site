@@ -11,12 +11,7 @@ function StatItem({ value, label, suffix = '', delay, animate = true }) {
   }, [delay])
 
   useEffect(() => {
-    if (!isVisible) return
-    if (!animate) {
-      setDisplayValue(value)
-      return
-    }
-    if (value === 0) return
+    if (!isVisible || !animate || value === 0) return
 
     const duration = 1500
     const steps = 30
@@ -36,9 +31,11 @@ function StatItem({ value, label, suffix = '', delay, animate = true }) {
     return () => clearInterval(interval)
   }, [value, isVisible, animate])
 
+  const shown = animate ? displayValue : value
+
   return (
     <div className={`stat-item ${isVisible ? 'stat-visible' : 'stat-hidden'}`}>
-      <div className="stat-value">{displayValue}{suffix}</div>
+      <div className="stat-value">{shown}{suffix}</div>
       <div className="stat-label">{label}</div>
     </div>
   )
@@ -50,7 +47,7 @@ function GitHubStats() {
   if (loading) {
     return (
       <div className="github-stats">
-        <p className="stats-label">dev_activity</p>
+        <p className="stats-label"><span>#</span> dev_activity</p>
         <div className="stats-row">
           <div className="stat-skeleton-item">
             <div className="stat-skeleton-value" />
@@ -79,7 +76,7 @@ function GitHubStats() {
           <StatItem value={stats.activeSince} label="Active Since" delay={0} animate={false} />
         )}
         <StatItem value={stats.publicRepos} label="Public Repos" delay={150} />
-        <StatItem value={stats.totalCommits} label="Total Commits" suffix="+" delay={300} />
+        <StatItem value={stats.activityScore} label="Code Activity" suffix="+" delay={300} />
       </div>
     </div>
   )
