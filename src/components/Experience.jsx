@@ -11,7 +11,7 @@ const experience = [
     period: 'May 2026 — Present',
     location: 'Bengaluru, India · On-site',
     highlights: [
-      'Develop and deploy full-stack features for the EAM platform using Django & REST Framework and ReactJS.',
+      'Developing full-stack features for the EAM platform using Django & REST Framework and ReactJS.',
     ],
   },
 ]
