@@ -55,7 +55,7 @@ function Hero() {
 
         <GitHubStats />
 
-        <a href="/Portfolio-Site/Aditya_Mohite.pdf" download className="resume-btn">
+        <a href={`${import.meta.env.BASE_URL}Aditya_Mohite.pdf`} download className="resume-btn">
           Download Resume
         </a>
       </div>
