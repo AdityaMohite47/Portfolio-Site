@@ -3,7 +3,7 @@ function About() {
     <section id="about">
       <h2><span>#</span> about</h2>
 
-      <p>Hey — I’m Aditya.</p>
+      <p><strong>Hey — I’m Aditya.</strong></p>
 
       <p>I’m a backend developer who keeps wandering toward the front end. Python is home for me: Django, REST APIs, database design. That’s where I think clearly and where most of my hours have gone.</p>
 
