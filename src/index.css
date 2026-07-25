@@ -380,7 +380,15 @@ h2 span {
   font-size: 0.97rem;
   max-width: 680px;
   line-height: 1.85;
-  white-space: pre-line;
+}
+
+#about p + p {
+  margin-top: 1.1em;
+}
+
+#about strong {
+  color: var(--text);
+  font-weight: 600;
 }
 
 /* ── Experience ── */
