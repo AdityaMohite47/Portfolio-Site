@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { FaCertificate, FaExpandAlt, FaExternalLinkAlt, FaTimes } from 'react-icons/fa'
+import { FaExpandAlt, FaExternalLinkAlt, FaTimes } from 'react-icons/fa'
 import claudeCode101 from '../assets/certifications/claude-code-101.png'
 import claudeCodeInAction from '../assets/certifications/claude-code-in-action.png'
 import pythonMlMasterclass from '../assets/certifications/python-ml-masterclass.png'
@@ -89,20 +89,24 @@ function Certifications() {
     <section id="certifications">
       <h2><span>#</span> certifications</h2>
 
-      <div className="certifications-row">
+      <div className="certifications-grid">
         {certifications.map((cert) => (
           <button
             key={cert.title}
             type="button"
-            className="cert-chip"
+            className="cert-card"
             onClick={() => setActiveCert(cert)}
           >
-            <FaCertificate size={14} />
-            <div>
+            <div className="cert-thumb">
+              <img src={cert.image} alt="" />
+              <span className="cert-thumb-overlay">
+                <FaExpandAlt size={14} /> View certificate
+              </span>
+            </div>
+            <div className="cert-body">
               <p className="cert-title">{cert.title}</p>
               <p className="cert-meta">{cert.issuer} · {cert.date}</p>
             </div>
-            <FaExpandAlt className="cert-expand-icon" size={12} />
           </button>
         ))}
       </div>
