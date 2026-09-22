@@ -9,8 +9,16 @@ function Hero() {
   const nameRef = useRef(null)
 
   useLayoutEffect(() => {
-    if (nameRef.current) {
-      nameRef.current.style.setProperty('--name-width', `${nameRef.current.scrollWidth}px`)
+    const setWidth = () => {
+      if (nameRef.current) {
+        nameRef.current.style.setProperty('--name-width', `${nameRef.current.scrollWidth}px`)
+      }
+    }
+
+    setWidth()
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(setWidth)
     }
   }, [])
 
