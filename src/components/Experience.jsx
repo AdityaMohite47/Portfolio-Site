@@ -1,50 +1,68 @@
-import qilinLogoDark from '../assets/qilinlab-logo-dark.svg'
-import qilinLogoLight from '../assets/qilinlab-logo-light.svg'
+import { FaChevronRight } from 'react-icons/fa'
+import qilinLogo from '../assets/qilinlab-logo-light.svg'
 
-const experience = [
+const jobs = [
   {
-    role: 'Junior Developer',
     company: 'Qilin Lab',
-    companyUrl: 'https://qilinlab.com/',
-    logoDark: qilinLogoDark,
-    logoLight: qilinLogoLight,
-    period: 'May 2026 — Present',
-    location: 'Bengaluru, India · On-site',
-    highlights: [
-      'Developing full-stack features for the EAM platform using Django & REST Framework and ReactJS.',
+    url: 'https://qilinlab.com/',
+    logo: qilinLogo,
+    role: 'Junior Developer',
+    type: 'Full-time',
+    period: 'May 2026 – Present',
+    location: 'Bengaluru, Karnataka, On-site',
+    current: true,
+    work: [
+      'Developing full-stack features for the company’s Enterprise Asset Management (EAM) platform.',
+      'Building REST APIs with Django and Django REST Framework, and the React screens that use them.',
     ],
+    stack: ['Python', 'Django', 'Django REST Framework', 'React', 'JavaScript'],
   },
 ]
 
 function Experience() {
   return (
-    <section id="experience">
-      <h2><span>#</span> experience</h2>
+    <section id="experience" className="section muted">
+      <div className="container">
+        <header className="section-head" data-reveal>
+          <h2>Experience</h2>
+          <p>Where I work now.</p>
+        </header>
 
-      <div className="timeline">
-        {experience.map((item) => (
-          <div key={`${item.company}-${item.role}`} className="timeline-item">
-            <div className="timeline-dot" />
-            <div className="timeline-content">
-              <p className="timeline-date">{item.period}</p>
-              <h3>
-                {item.role} ·{' '}
-                <a href={item.companyUrl} target="_blank" rel="noreferrer" className="company-link">
-                  <picture>
-                    <source srcSet={item.logoDark} media="(prefers-color-scheme: dark)" />
-                    <img src={item.logoLight} alt={item.company} className="company-logo" />
-                  </picture>
+        <ol className="jobs">
+          {jobs.map((job) => (
+            <li key={job.company} className="job" data-reveal style={{ '--d': '100ms' }}>
+              <div className="job-side">
+                <a href={job.url} target="_blank" rel="noreferrer" className="job-logo">
+                  <img src={job.logo} alt={job.company} width="180" height="31" />
                 </a>
-              </h3>
-              <p className="timeline-location">{item.location}</p>
-              <ul className="timeline-description">
-                {item.highlights.map((highlight) => (
-                  <li key={highlight}>{highlight}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        ))}
+                <p className="job-period">{job.period}</p>
+                <p className="job-location">{job.location}</p>
+              </div>
+              <div className="job-main">
+                <div className="job-title-row">
+                  <h3>{job.role}</h3>
+                  {job.current && <span className="tag tag--green">Current</span>}
+                </div>
+                <p className="job-company">
+                  {job.company}, {job.type}
+                </p>
+                <ul className="job-work">
+                  {job.work.map((line) => (
+                    <li key={line}>{line}</li>
+                  ))}
+                </ul>
+                <ul className="job-stack" aria-label="Technologies">
+                  {job.stack.map((t) => (
+                    <li key={t}>{t}</li>
+                  ))}
+                </ul>
+                <a className="mono-link job-link" href={job.url} target="_blank" rel="noreferrer">
+                  Visit {job.company} <FaChevronRight aria-hidden="true" />
+                </a>
+              </div>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   )
