@@ -1,68 +1,56 @@
-import { FaChevronRight } from 'react-icons/fa'
-import qilinLogo from '../assets/qilinlab-logo-light.svg'
+import qilinLogo from '../assets/qilinlab-logo-dark.svg'
+import qilinLogoLight from '../assets/qilinlab-logo-light.svg'
+import { ArrowIcon } from './icons'
 
-const jobs = [
-  {
-    company: 'Qilin Lab',
-    url: 'https://qilinlab.com/',
-    logo: qilinLogo,
-    role: 'Junior Developer',
-    type: 'Full-time',
-    period: 'May 2026 – Present',
-    location: 'Bengaluru, Karnataka, On-site',
-    current: true,
-    work: [
-      'Developing full-stack features for the company’s Enterprise Asset Management (EAM) platform.',
-      'Building REST APIs with Django and Django REST Framework, and the React screens that use them.',
-    ],
-    stack: ['Python', 'Django', 'Django REST Framework', 'React', 'JavaScript'],
-  },
-]
+const job = {
+  company: 'Qilin Lab',
+  url: 'https://qilinlab.com/',
+  logo: qilinLogo,
+  logoOnDark: qilinLogoLight,
+  role: 'Junior Software Developer',
+  type: 'Full time',
+  period: 'May 2026 – Present',
+  location: 'Bengaluru, Karnataka · On-site',
+  work: [
+    'Developing full-stack features for the company’s Enterprise Asset Management (EAM) platform.',
+    'Building REST APIs with Django and Django REST Framework, and the React screens that use them.',
+  ],
+}
 
 function Experience() {
   return (
-    <section id="experience" className="section muted">
-      <div className="container">
-        <header className="section-head" data-reveal>
-          <h2>Experience</h2>
-          <p>Where I work now.</p>
+    <section id="about" className="band">
+      <div className="wrap wrap--narrow band-inner">
+        <header className="band-head" data-reveal>
+          <h2>Where I work now</h2>
         </header>
 
-        <ol className="jobs">
-          {jobs.map((job) => (
-            <li key={job.company} className="job" data-reveal style={{ '--d': '100ms' }}>
-              <div className="job-side">
-                <a href={job.url} target="_blank" rel="noreferrer" className="job-logo">
-                  <img src={job.logo} alt={job.company} width="180" height="31" />
-                </a>
-                <p className="job-period">{job.period}</p>
-                <p className="job-location">{job.location}</p>
-              </div>
-              <div className="job-main">
-                <div className="job-title-row">
-                  <h3>{job.role}</h3>
-                  {job.current && <span className="tag tag--green">Current</span>}
-                </div>
-                <p className="job-company">
-                  {job.company}, {job.type}
-                </p>
-                <ul className="job-work">
-                  {job.work.map((line) => (
-                    <li key={line}>{line}</li>
-                  ))}
-                </ul>
-                <ul className="job-stack" aria-label="Technologies">
-                  {job.stack.map((t) => (
-                    <li key={t}>{t}</li>
-                  ))}
-                </ul>
-                <a className="mono-link job-link" href={job.url} target="_blank" rel="noreferrer">
-                  Visit {job.company} <FaChevronRight aria-hidden="true" />
-                </a>
-              </div>
-            </li>
-          ))}
-        </ol>
+        <article className="card job" data-reveal>
+          <div className="job-side">
+            <a href={job.url} target="_blank" rel="noreferrer" className="job-logo">
+              <picture>
+                <source srcSet={job.logoOnDark} media="(prefers-color-scheme: dark)" />
+                <img src={job.logo} alt={job.company} width="180" height="31" />
+              </picture>
+            </a>
+            <p className="mono job-period">{job.period}</p>
+            <p className="mono job-location">{job.location}</p>
+          </div>
+          <div className="job-main">
+            <h3>{job.role}</h3>
+            <p className="job-company">
+              {job.company} · {job.type}
+            </p>
+            <ul className="job-work">
+              {job.work.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
+            <a className="link job-link" href={job.url} target="_blank" rel="noreferrer">
+              Visit {job.company} <ArrowIcon />
+            </a>
+          </div>
+        </article>
       </div>
     </section>
   )

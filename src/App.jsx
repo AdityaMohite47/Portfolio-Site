@@ -1,9 +1,8 @@
-import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Experience from './components/Experience'
+import Technologies from './components/Technologies'
 import Projects from './components/Projects'
 import Certifications from './components/Certifications'
-import MoreWork from './components/MoreWork'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import { useReveal } from './useReveal'
@@ -13,13 +12,12 @@ function App() {
 
   return (
     <>
-      <Navbar />
       <main>
         <Hero />
         <Experience />
+        <Technologies />
         <Projects />
         <Certifications />
-        <MoreWork />
         <Contact />
       </main>
       <Footer />

@@ -1,101 +1,121 @@
-import { FaChevronRight } from 'react-icons/fa'
-import { CanteenLive, ShortlyTerminal, ShotGallery } from './fragments'
-import canteenChat from '../assets/projects/canteen-chat.webp'
-import canteenOrders from '../assets/projects/canteen-orders.webp'
-import canteenMenu from '../assets/projects/canteen-menu.webp'
-import canteenArchitecture from '../assets/projects/canteen-architecture.webp'
-import ecopayAnalysis from '../assets/projects/ecopay-analysis.webp'
-import ecopayPickup from '../assets/projects/ecopay-pickup.webp'
+import canteenShot from '../assets/projects/canteen.webp'
+import ecopayShot from '../assets/projects/ecopay.webp'
+import { tech } from '../tech'
+import { CodeIcon, PlayIcon } from './icons'
+
+const GH = 'https://github.com/AdityaMohite47/'
 
 const projects = [
   {
-    tag: 'LangGraph + FastAPI',
-    color: 'orange',
+    title: 'short.ly',
+    when: '2026 · in progress',
+    desc: 'A URL shortener, and my way into Go. Standard-library routing with net/http, PostgreSQL through pgx, a Redis cache for lookups, base62 short codes, and a 301 for every code it knows.',
+    media: { terminal: true },
+    built: [tech.go, tech.postgresql, tech.redis, tech.docker],
+    links: [['Source Code', `${GH}short_ly`, 'code']],
+  },
+  {
     title: 'Campus Canteen',
     when: 'Sep – Nov 2025',
-    desc: 'Order lunch by chatting. A LangGraph workflow works out what you want, answers menu questions and books the order into MongoDB, and canteen staff see pending orders on a React dashboard. Open “Try it” to order a dish yourself.',
-    stack: 'Python, FastAPI, LangGraph, MongoDB, Docker, React',
-    visual: (
-      <ShotGallery
-        label="Campus Canteen"
-        ratio="4 / 3"
-        shots={[
-          { label: 'Chat', src: canteenChat, alt: 'Campus Canteen chat: the bot lists the menu, then books 1 Veg Roll and gives token number 999', frame: 'localhost:8501', bg: '#0e1117' },
-          { label: 'Orders', src: canteenOrders, alt: 'Canteen Admin orders page showing pending order #999 for one Veg Roll', frame: 'localhost:8080', bg: '#f9fafb' },
-          { label: 'Menu', src: canteenMenu, alt: 'Canteen Admin menu management with items, prices and edit and delete actions', frame: 'localhost:8080/menu', bg: '#f9fafb' },
-          { label: 'Architecture', src: canteenArchitecture, alt: 'Architecture diagram: WhatsApp messages go to a LangGraph and Gemini system, orders are stored in MongoDB, vendors use a dashboard', frame: 'excalidraw.com', bg: '#ffffff' },
-          { label: 'Try it', live: <CanteenLive />, frame: 'Replay of the booking flow', bg: '#0e1117' },
-        ]}
-      />
-    ),
-    primary: ['View the code', 'https://github.com/AdityaMohite47/CampusCanteen-BE'],
-    extra: [
-      ['Dashboard code', 'https://github.com/AdityaMohite47/CampusCanteen-Dashboard'],
-      ['Demo video', 'https://www.youtube.com/watch?v=900mPHrd1K8'],
+    desc: 'Order lunch by chatting. A LangGraph workflow works out what you want, answers menu questions and books the order into MongoDB; staff see pending orders on a React dashboard.',
+    media: { image: canteenShot, bg: '#0e1117', top: true, alt: 'Campus Canteen chat: the bot lists the menu, then books 1 Veg Roll and gives token number 999' },
+    built: [tech.python, tech.fastapi, tech.langgraph, tech.gemini, tech.mongodb, tech.docker, tech.react],
+    videoOwnRow: true,
+    links: [
+      ['Source Code', `${GH}CampusCanteen-BE`, 'code', 'Backend'],
+      ['Source Code', `${GH}CampusCanteen-Dashboard`, 'code', 'Dashboard'],
+      ['Demo video', 'https://www.youtube.com/watch?v=900mPHrd1K8', 'video'],
     ],
   },
   {
-    tag: 'Django + Gemini API',
-    color: 'blue',
     title: 'EcoPay',
-    when: 'Jul – Aug 2024, Gemini API Developer Competition',
-    desc: 'A recycling app for the Gemini API Developer Competition, built in collaboration with a senior developer. I wrote the Django backend: REST endpoints that take a photo, ask Gemini which items are recyclable, and return a clean list the app turns into a scheduled pickup.',
-    stack: 'Python, Django, REST APIs, Gemini API',
-    visual: (
-      <ShotGallery
-        label="EcoPay"
-        ratio="16 / 9"
-        shots={[
-          { label: 'Gemini analysis', src: ecopayAnalysis, alt: 'EcoPay app listing recyclable objects (metal, plastic, paper) and non-recyclable electronics found in a photo', bg: '#ebebe1', fit: 'cover' },
-          { label: 'Pickup scheduled', src: ecopayPickup, alt: 'EcoPay app confirming a pickup scheduled today with the recyclable and non-recyclable items listed', bg: '#ebebe1', fit: 'cover' },
-        ]}
-      />
-    ),
-    primary: ['View the code', 'https://github.com/the-ecopay/ecopay-be'],
-    extra: [['Demo video', 'https://www.youtube.com/watch?v=JPifD5EUVow']],
-  },
-  {
-    tag: 'Go',
-    color: 'teal',
-    title: 'short.ly',
-    when: '2026, in progress',
-    desc: 'A URL shortener, and my way into Go. Standard-library routing with net/http, PostgreSQL through pgx, base62 short codes, and a 301 for every code it knows.',
-    stack: 'Go, net/http, PostgreSQL, pgx',
-    visual: <ShotGallery label="short.ly" shots={[{ label: 'Terminal', live: <ShortlyTerminal />, frame: 'zsh: short.ly', bg: '#101010' }]} />,
-    primary: ['View the code', 'https://github.com/AdityaMohite47/short.ly'],
-    extra: [],
+    when: 'Jul – Aug 2024',
+    desc: 'A recycling app for the Gemini API Developer Competition, built with a senior developer. I wrote the Django backend: endpoints that take a photo, ask Gemini what’s recyclable, and return a list the app turns into a scheduled pickup.',
+    media: { image: ecopayShot, bg: '#ebebe1', alt: 'EcoPay app listing recyclable objects (metal, plastic, paper) and non-recyclable electronics found in a photo' },
+    built: [tech.python, tech.django, tech.gemini],
+    links: [
+      ['Source Code', 'https://github.com/the-ecopay/ecopay-be', 'code'],
+      ['Demo video', 'https://www.youtube.com/watch?v=JPifD5EUVow', 'video'],
+    ],
   },
 ]
 
+function Terminal() {
+  return (
+    <pre className="mono terminal" aria-hidden="true">
+      <span className="t-ok">$</span> curl -X POST localhost:8080/shorten \{'\n'}
+      {'    '}-d {"'"}{'{"url": "https://adityamohite.in"}'}{"'"}{'\n'}
+      <span className="t-ok">HTTP/1.1 201 Created</span>{'\n'}
+      {'{'}<span className="t-key">"short_url"</span>: "aZ3kL9q"{'}'}{'\n'}
+      {'\n'}
+      <span className="t-ok">$</span> curl -I localhost:8080/aZ3kL9q{'\n'}
+      <span className="t-ok">HTTP/1.1 301 Moved Permanently</span>{'\n'}
+      Location: https://adityamohite.in
+    </pre>
+  )
+}
+
 function Projects() {
   return (
-    <section id="projects" className="section light">
-      <div className="container">
-        <header className="section-head" data-reveal>
-          <h2>Projects</h2>
-          <p>Things I’ve built in college and since. Most of them are backends with something talking to them.</p>
+    <section id="work" className="band band--white">
+      <div className="wrap wrap--wide band-inner band-inner--roomy">
+        <header className="band-head" data-reveal>
+          <h2>Projects I’ve built</h2>
         </header>
 
-        <div className="cases">
+        <div className="project-list">
           {projects.map((p, i) => (
-            <article key={p.title} className={`case${i % 2 ? ' case--flip' : ''}`}>
-              <div className="case-text" data-reveal={i % 2 ? 'right' : 'left'}>
-                <span className={`tag tag--${p.color}`}>{p.tag}</span>
-                <h3>{p.title}</h3>
-                <p className="case-when">{p.when}</p>
-                <p className="case-desc">{p.desc}</p>
-                <p className="case-stack">{p.stack}</p>
-                <div className="case-actions">
-                  <a className={`btn btn-${p.color}`} href={p.primary[1]} target="_blank" rel="noreferrer">
-                    {p.primary[0]} <FaChevronRight aria-hidden="true" />
-                  </a>
-                  {p.extra.map(([label, href]) => (
-                    <a key={href} className="mono-link" href={href} target="_blank" rel="noreferrer">{label}</a>
-                  ))}
+            <article className={`card project${i % 2 ? ' project--flip' : ''}`} key={p.title} data-reveal>
+              {p.media.terminal ? (
+                <div className="project-media project-media--terminal">
+                  <Terminal />
                 </div>
-              </div>
-              <div className="case-visual" data-reveal={i % 2 ? 'left' : 'right'} style={{ '--d': '120ms' }}>
-                {p.visual}
+              ) : (
+                <div className="project-media" style={{ background: p.media.bg }}>
+                  <img
+                    src={p.media.image}
+                    alt={p.media.alt}
+                    loading="lazy"
+                    style={p.media.top ? { objectPosition: 'top' } : undefined}
+                  />
+                </div>
+              )}
+
+              <div className="project-body">
+                <div className="project-head">
+                  <h3>{p.title}</h3>
+                  <p className="mono project-when">{p.when}</p>
+                </div>
+                <p className="project-desc">{p.desc}</p>
+                <ul className="stack" aria-label="Built with">
+                  {p.built.map((t) => (
+                    <li className="chip" key={t.name}>
+                      <img src={t.src} alt="" width="18" height="18" data-dark={t.dark} />
+                      {t.name}
+                    </li>
+                  ))}
+                </ul>
+                <div className="project-links">
+                  {(p.videoOwnRow ? [p.links.filter((l) => l[2] === 'code'), p.links.filter((l) => l[2] !== 'code')] : [p.links]).map(
+                    (row) => (
+                      <div className="project-links-row" key={row[0][1]}>
+                        {row.map(([label, href, kind, note]) => (
+                          <a
+                            className={`btn ${kind === 'code' ? 'btn-white' : 'btn-ghost'}`}
+                            href={href}
+                            target="_blank"
+                            rel="noreferrer"
+                            key={href}
+                          >
+                            {kind === 'video' ? <PlayIcon /> : <CodeIcon />}
+                            {label}
+                            {note && <span className="btn-note">{note}</span>}
+                          </a>
+                        ))}
+                      </div>
+                    ),
+                  )}
+                </div>
               </div>
             </article>
           ))}
